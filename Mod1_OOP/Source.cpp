@@ -11,6 +11,17 @@ public:
 		m_name = name;
 		std::cout << "Person " << m_name << ", " << m_age << " created";
 	}
+	Parent(std::string name) : Parent(18, name) {}
+	Parent(): Parent("Bob"){}
+	~Parent() {
+		std::cout << "Parent was destracted";
+	}
+};
+class Child : public Parent{
+private:
+	std::string s_class; 
+public:
+	Child(){}
 };
 int main() {
 	std::vector<double> numbers;
