@@ -9,5 +9,6 @@ int main() {
 		std::cin >> number;
 		numbers.push_back(number);
 	}
-	
+	sort(numbers.rbegin(), numbers.rend());
+	std::cout << "Max of numbers: " << numbers[0];
 }
