@@ -2,26 +2,33 @@
 #include <vector>
 #include <algorithm>
 class Parent {
-private:
+protected:
 	int m_age;
 	std::string m_name;
 public:
 	Parent(int age, std::string name) {
 		m_age = age;
 		m_name = name;
-		std::cout << "Person " << m_name << ", " << m_age << " created";
+		std::cout << "Person " << m_name << ", " << m_age << "was created";
 	}
 	Parent(std::string name) : Parent(18, name) {}
 	Parent(): Parent("Bob"){}
 	~Parent() {
-		std::cout << "Parent was destracted";
+		std::cout << "Parent was destroyed";
 	}
 };
 class Child : public Parent{
 private:
-	std::string s_class; 
+	std::string m_class; 
 public:
-	Child(){}
+	Child(std::string s_class, int age, std::string name) : Parent(age,name)
+	{
+		m_class = s_class;
+		std::cout << "Child " << m_name << ", " << m_age <<", "<<m_class << "was created";
+	}
+	~Child() {
+		std::cout << "Child was destroyed";
+	}
 };
 int main() {
 	std::vector<double> numbers;
