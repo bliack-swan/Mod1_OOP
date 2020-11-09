@@ -16,6 +16,7 @@ public:
 	~Parent() {
 		std::cout << "Parent was destroyed" << std::endl;
 	}
+	virtual const char* getClass() { return "Parent"; }
 };
 class Child : public Parent{
 private:
@@ -29,7 +30,9 @@ public:
 	~Child() {
 		std::cout << "Child was destroyed" << std::endl;
 	}
+	virtual const char* getClass() { return "Child"; }
 };
+
 int main() {
 	int task;
 	std::cout << "Input task`s number (0,1): ";
@@ -51,6 +54,9 @@ int main() {
 			Parent parent_2("Antonij");
 			Parent parent_3;
 		}
-		Child child_1("11-A", 17, "Tola");
+		Child child("11-A", 17, "Tola");
+		Parent& rParent = child;
+		std::cout << "rParent is a " << rParent.getClass() << '\n';
 	}
+	
 }
